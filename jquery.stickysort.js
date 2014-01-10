@@ -95,6 +95,7 @@
 								// When top of wrapping parent is out of view
 								$stickyHead.add($stickyInsct).css({
 									opacity: 1,
+									'pointer-events': 'auto',
 									position: 'fixed',
 									top: $stickyWrap.offset().top - $w.scrollTop(),
 									left: $stickyWrap.offset().left
@@ -104,7 +105,8 @@
 							} else {
 								// When top of wrapping parent is in view
 								$stickyHead.add($stickyInsct).css({
-									opacity: 0
+									opacity: 0,
+									'pointer-events': 'none'
 								});
 							}
 						} else {
@@ -114,6 +116,7 @@
 								// When top of viewport is in the table itself
 								$stickyHead.add($stickyInsct).css({
 									opacity: 1,
+									'pointer-events': 'auto',
 									position: 'fixed',
 									left: $stickyWrap.offset().left
 								}).find('table').css({
@@ -123,6 +126,7 @@
 								// When top of viewport is above or below table
 								$stickyHead.add($stickyInsct).css({
 									opacity: 0,
+									'pointer-events': 'none',
 									position: 'absolute',
 									left: 0
 								});
@@ -145,12 +149,16 @@
 								})
 							.end()
 							.add($stickyInsct).css({
-								opacity: 1
+								opacity: 1,
+								'pointer-events': 'auto'
 							});
 						} else {
 							// When left of wrapping parent is in view
 							$stickyCol
-							.css({ opacity: 0 });
+							.css({
+								opacity: 0,
+								'pointer-events': 'none'
+							});
 						}
 					},
 					calcAllowance = function () {
