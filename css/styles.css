@@ -312,4 +312,8 @@ tbody img {
 	html {
 		font-size: 14px;
 	}
+	header,
+	#final .sticky-wrap {
+		max-height: 25rem;
+	}
 }
