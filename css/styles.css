@@ -307,7 +307,7 @@ tbody img {
 	background-color: #004B80;
 }
 
-/* Media queries, unrelated to functionality of Fluidbox */
+/* Media queries, unrelated to functionality of StickySort */
 @media only screen and (max-width: 768px) {
 	html {
 		font-size: 14px;

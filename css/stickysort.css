@@ -106,3 +106,17 @@
 		.sort-desc .sort-handle:after {
 			bottom: -0.1em;
 		}
+
+/* To hide sticky column and intersect when screen gets too narrow */
+@media only screen and (max-width: 768px) {
+	html {
+		font-size: 14px;
+	}
+	header,
+	#final .sticky-wrap {
+		max-height: 25rem;
+	}
+	.sticky-col, .sticky-intersect {
+		display: none;
+	}
+}
