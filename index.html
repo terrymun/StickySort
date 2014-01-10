@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>StickySort, a jQuery plugin for tables with sticky headers, columns and sortable feature</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link type="text/css" href="./css/normalize.css" media="all" rel="stylesheet" />
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link type="text/css" href="./css/styles.css" media="all" rel="stylesheet" />
+	<link type="text/css" href="./css/stickysort.css" media="all" rel="stylesheet" />
+	<link rel="author" href="https://plus.google.com/+TerryMun/"></link>
+	<script text="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	<!--<script>
+		(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,"script","//www.google-analytics.com/analytics.js","ga");
+		ga("create", "UA-46830269-1", "terrymun.github.io");
+		ga("send", "pageview");
+	</script>-->
+</head>
+<body>
+	<header>
+		<div>
+			<h1>StickySort</h1>
+			<span class="byline">Tables with sticky headers, columns completed with sortable feature</span>
+		</div>
+		<a href="#content" id="skip" title="Skip to content">
+			<svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+				 x="0px" y="0px" viewBox="0 0 400 200" xml:space="preserve">
+				<g>
+					<path d="M106.308,29.384c6.332,0,11.664,2.444,15.984,7.344c9.214,11.232,18.286,22.174,27.216,32.832l43.2,51.84
+						c5.184-6.629,11.806-14.62,19.873-23.976c8.059-9.362,15.834-18.65,23.328-27.864c8.922-10.658,17.994-21.6,27.215-32.832
+						c4.32-4.9,9.646-7.344,15.984-7.344c4.895,0,9.355,1.58,13.393,4.752c4.32,3.74,6.764,8.424,7.344,14.04
+						c0.574,5.616-1.014,10.726-4.752,15.336l-86.4,103.68c-4.037,4.894-9.362,7.344-15.984,7.344c-6.628,0-11.954-2.45-15.984-7.344
+						l-86.4-103.68c-3.747-4.61-5.333-9.72-4.752-15.336c0.574-5.616,3.024-10.3,7.344-14.04
+						C96.945,30.964,101.407,29.384,106.308,29.384z"/>
+				</g>
+			</svg>
+		</a>
+	</header>
+
+	<main id="content">
+		<section>
+			<h2>Introduction</h2>
+			<p>StickySort is a jQuery plugin that creates sticky headers and columns on your tables, complete with the possibility to add a sortable functionality. This plugin was inspired by a recent task at work where I have to create sticky headers to allow users to orient themselves in large tables that, at many instances, fill the full height of the viewport. Made by <a href="http://terrymun.com/" title="Visit Terry">Terry</a>.</p>
+			<a class="message">
+				<svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 850.39 850.39" xml:space="preserve">
+					<g>
+						<path fill-rule="evenodd" fill="#191717" d="M424.731,131.743c-166.349,0-301.242,134.865-301.242,301.243
+		c0,133.097,86.314,246.015,206.008,285.849c15.053,2.786,20.583-6.537,20.583-14.493c0-7.18-0.278-30.915-0.409-56.086
+		c-83.806,18.225-101.489-35.543-101.489-35.543c-13.704-34.817-33.448-44.077-33.448-44.077
+		c-27.334-18.697,2.061-18.312,2.061-18.312c30.247,2.124,46.177,31.046,46.177,31.046c26.867,46.051,70.472,32.737,87.664,25.04
+		c2.704-19.467,10.508-32.762,19.125-40.283c-66.911-7.613-137.251-33.448-137.251-148.875c0-32.888,11.77-59.762,31.042-80.858
+		c-3.128-7.59-13.441-38.227,2.918-79.723c0,0,25.298-8.091,82.86,30.883c24.031-6.676,49.802-10.023,75.401-10.14
+		c25.601,0.117,51.391,3.464,75.466,10.14c57.499-38.975,82.758-30.883,82.758-30.883c16.396,41.496,6.084,72.133,2.958,79.723
+		c19.312,21.096,31.005,47.97,31.005,80.858c0,115.705-70.476,141.179-137.557,148.637c10.806,9.348,20.432,27.681,20.432,55.784
+		c0,40.308-0.346,72.746-0.346,82.67c0,8.019,5.422,17.412,20.689,14.454c119.628-39.878,205.836-152.757,205.836-285.81
+		C725.973,266.607,591.101,131.743,424.731,131.743z"/>
+						<path fill="#191717" d="M237.586,564.26c-0.662,1.5-3.02,1.948-5.164,0.92c-2.188-0.983-3.411-3.024-2.704-4.525
+		c0.648-1.539,3.006-1.968,5.188-0.939C237.094,560.698,238.341,562.759,237.586,564.26L237.586,564.26z M233.879,561.512"/>
+						<path fill="#191717" d="M249.79,577.87c-1.438,1.33-4.248,0.712-6.153-1.393c-1.973-2.1-2.338-4.91-0.882-6.261
+		c1.48-1.329,4.204-0.705,6.177,1.395C250.905,573.735,251.29,576.521,249.79,577.87L249.79,577.87z M246.915,574.787"/>
+						<path fill="#191717" d="M261.667,595.218c-1.847,1.287-4.867,0.083-6.733-2.596c-1.846-2.68-1.846-5.896,0.044-7.182
+		c1.866-1.285,4.842-0.126,6.732,2.529C263.552,590.692,263.552,593.908,261.667,595.218L261.667,595.218z M261.667,595.218"/>
+						<path fill="#191717" d="M277.938,611.981c-1.652,1.821-5.169,1.33-7.741-1.155c-2.636-2.426-3.366-5.874-1.715-7.697
+		c1.676-1.821,5.213-1.31,7.804,1.155C278.902,606.71,279.696,610.179,277.938,611.981L277.938,611.981z M277.938,611.981"/>
+						<path fill="#191717" d="M300.386,621.714c-0.731,2.359-4.117,3.43-7.527,2.427c-3.41-1.032-5.636-3.795-4.95-6.177
+		c0.707-2.378,4.112-3.493,7.546-2.422C298.861,616.57,301.092,619.312,300.386,621.714L300.386,621.714z M300.386,621.714"/>
+						<path fill="#191717" d="M325.04,623.518c0.083,2.484-2.811,4.545-6.391,4.588c-3.6,0.083-6.518-1.929-6.557-4.374
+		c0-2.509,2.831-4.545,6.431-4.608C322.103,619.055,325.04,621.053,325.04,623.518L325.04,623.518z M325.04,623.518"/>
+						<path fill="#191717" d="M347.98,619.614c0.429,2.422-2.061,4.911-5.617,5.573c-3.498,0.644-6.732-0.856-7.181-3.258
+		c-0.434-2.485,2.1-4.975,5.593-5.618C344.336,615.693,347.527,617.149,347.98,619.614L347.98,619.614z M347.98,619.614"/>
+					</g>
+ 				</svg>
+				<p>For installation and usage, please refer to the readme file on the GitHub project page.</p>
+			</a>
+		</section>
+		<section class="demo" id="basic">
+			<h2>Basic Usage</h2>
+			<p>Here is a basic table, populated with data provided by <a href="http://randomuser.me/">Random User Generator (v0.2)</a>. Setting up is easy-peasy:</p>
+			<pre><code>$('table').stickySort();</code></pre>
+			<table>
+				<thead>
+					<tr>
+						<th>Avatar</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Contact</th>
+						<th>Location</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/women/31.jpg" alt="samantha morgan" title="samantha morgan" /></td><td class="user-name">samantha morgan</td><td class="user-email">samantha.morgan56@example.com</td><td class="user-phone">(369)-227-3751</td><td class="user-location">grapevine, idaho</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/men/26.jpg" alt="eli wilson" title="eli wilson" /></td><td class="user-name">eli wilson</td><td class="user-email">eli.wilson12@example.com</td><td class="user-phone">(857)-619-4186</td><td class="user-location">bozeman, new york</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/men/13.jpg" alt="brian brown" title="brian brown" /></td><td class="user-name">brian brown</td><td class="user-email">brian.brown96@example.com</td><td class="user-phone">(924)-543-6342</td><td class="user-location">allen, washington</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/women/22.jpg" alt="kathy wilson" title="kathy wilson" /></td><td class="user-name">kathy wilson</td><td class="user-email">kathy.wilson59@example.com</td><td class="user-phone">(786)-203-4153</td><td class="user-location">ennis, connecticut</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/women/18.jpg" alt="christine ramirez" title="christine ramirez" /></td><td class="user-name">christine ramirez</td><td class="user-email">christine.ramirez72@example.com</td><td class="user-phone">(778)-129-1925</td><td class="user-location">provo, delaware</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/men/46.jpg" alt="charles lee" title="charles lee" /></td><td class="user-name">charles lee</td><td class="user-email">charles.lee19@example.com</td><td class="user-phone">(425)-976-3550</td><td class="user-location">akron, virginia</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/men/26.jpg" alt="arthur bennett" title="arthur bennett" /></td><td class="user-name">arthur bennett</td><td class="user-email">arthur.bennett10@example.com</td><td class="user-phone">(996)-182-3744</td><td class="user-location">wilmington, michigan</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/women/5.jpg" alt="aalivah simmmons" title="aalivah simmmons" /></td><td class="user-name">aalivah simmmons</td><td class="user-email">aalivah.simmmons64@example.com</td><td class="user-phone">(687)-147-6639</td><td class="user-location">duncanville, tennessee</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/men/8.jpg" alt="brian russell" title="brian russell" /></td><td class="user-name">brian russell</td><td class="user-email">brian.russell22@example.com</td><td class="user-phone">(600)-224-4416</td><td class="user-location">everett, colorado</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/men/5.jpg" alt="dylan russell" title="dylan russell" /></td><td class="user-name">dylan russell</td><td class="user-email">dylan.russell32@example.com</td><td class="user-phone">(439)-363-4363</td><td class="user-location">billings, wisconsin</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/women/34.jpg" alt="candice lewis" title="candice lewis" /></td><td class="user-name">candice lewis</td><td class="user-email">candice.lewis76@example.com</td><td class="user-phone">(733)-701-4550</td><td class="user-location">utica, nebraska</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/women/10.jpg" alt="kaylee cox" title="kaylee cox" /></td><td class="user-name">kaylee cox</td><td class="user-email">kaylee.cox32@example.com</td><td class="user-phone">(459)-899-9689</td><td class="user-location">rochmond, california</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/women/9.jpg" alt="erin miller" title="erin miller" /></td><td class="user-name">erin miller</td><td class="user-email">erin.miller82@example.com</td><td class="user-phone">(570)-814-6244</td><td class="user-location">rochester, indiana</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/women/7.jpg" alt="madison brooks" title="madison brooks" /></td><td class="user-name">madison brooks</td><td class="user-email">madison.brooks63@example.com</td><td class="user-phone">(855)-789-4736</td><td class="user-location">richardson, delaware</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/women/20.jpg" alt="jennifer evans" title="jennifer evans" /></td><td class="user-name">jennifer evans</td><td class="user-email">jennifer.evans72@example.com</td><td class="user-phone">(214)-201-9140</td><td class="user-location">akron, rhode island</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/women/15.jpg" alt="rebecca hughes" title="rebecca hughes" /></td><td class="user-name">rebecca hughes</td><td class="user-email">rebecca.hughes42@example.com</td><td class="user-phone">(736)-650-7095</td><td class="user-location">greensboro, north carolina</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/men/26.jpg" alt="samuel taylor" title="samuel taylor" /></td><td class="user-name">samuel taylor</td><td class="user-email">samuel.taylor13@example.com</td><td class="user-phone">(241)-121-6322</td><td class="user-location">dumas, north dakota</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/men/43.jpg" alt="joseph walker" title="joseph walker" /></td><td class="user-name">joseph walker</td><td class="user-email">joseph.walker51@example.com</td><td class="user-phone">(736)-940-6308</td><td class="user-location">bueblo, utah</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/men/13.jpg" alt="ethan anderson" title="ethan anderson" /></td><td class="user-name">ethan anderson</td><td class="user-email">ethan.anderson65@example.com</td><td class="user-phone">(820)-571-9435</td><td class="user-location">grapevine, iowa</td></tr>
+					<tr><td class="user-avatar"><img src="http://api.randomuser.me/0.2/portraits/men/1.jpg" alt="angel barnes" title="angel barnes" /></td><td class="user-name">angel barnes</td><td class="user-email">angel.barnes96@example.com</td><td class="user-phone">(773)-363-7896</td><td class="user-location">belen, vermont</td></tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="demo" id="basic-sort">
+			<h2>Sortable basic table</h2>
+			<p>Here is a basic table with sort function, populated with data provided by <a href="http://randomuser.me/">Random User Generator (v0.2)</a>. Setting up is easy-peasy:</p>
+			<pre><code>$('table').stickySort({ sortable: true });</code></pre>
+			<p>Also, if you are on a narrow monitor, see how the sticky header plays friendly with overflows along the y-axis:</p>
+			<table>
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>MD5 hash</th>
+						<th>SHA1 hash</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td class="user-firstName">albert</td><td class="user-lastName">garcia</td><td class="user-email">albert.garcia37@example.com</td><td class="user-md5">9a26de5ea2dbe7fc5b6844128f307c38</td><td class="user-sha1">68a90898cfc09508ed08aacf24482effe7f8f7c8</td></tr>
+					<tr><td class="user-firstName">alexa</td><td class="user-lastName">wallace</td><td class="user-email">alexa.wallace18@example.com</td><td class="user-md5">a3c4b614a1f072e0f968c2712a36323f</td><td class="user-sha1">adfc8f0aec273eace2629141317c1eac53923f28</td></tr>
+					<tr><td class="user-firstName">jack</td><td class="user-lastName">cox</td><td class="user-email">jack.cox73@example.com</td><td class="user-md5">28e246ff038060bc335c0bf4925e5d51</td><td class="user-sha1">8ad9a53bdd3b96cbc28efde629383954666ece67</td></tr>
+					<tr><td class="user-firstName">meghan</td><td class="user-lastName">taylor</td><td class="user-email">meghan.taylor36@example.com</td><td class="user-md5">573ce5969e9884d49d4fab77b09a306a</td><td class="user-sha1">9621a244a447ec749598f8327560ff86095e2c26</td></tr>
+					<tr><td class="user-firstName">amy</td><td class="user-lastName">collins</td><td class="user-email">amy.collins45@example.com</td><td class="user-md5">f61f2f8157d9d632cc0b2bbc43d883f2</td><td class="user-sha1">be842d987424dcb128bee9520682687bc2149284</td></tr>
+					<tr><td class="user-firstName">nicole</td><td class="user-lastName">lewis</td><td class="user-email">nicole.lewis62@example.com</td><td class="user-md5">e50081b0de0be206cd443d20094d3894</td><td class="user-sha1">11615c74a29cc915c0802ae001d43b4cd96ced62</td></tr>
+					<tr><td class="user-firstName">richard</td><td class="user-lastName">graham</td><td class="user-email">richard.graham65@example.com</td><td class="user-md5">03764ebfde7010aa700c6e73f84ed00e</td><td class="user-sha1">9286fa940279aa33e8e47ca7dd175324f333e4fa</td></tr>
+					<tr><td class="user-firstName">brayden</td><td class="user-lastName">hill</td><td class="user-email">brayden.hill28@example.com</td><td class="user-md5">a03490c03eaa102dadc25dca3cc6772b</td><td class="user-sha1">6a53d618b92dcc6f23461cd323f993b210876602</td></tr>
+					<tr><td class="user-firstName">amelia</td><td class="user-lastName">wallace</td><td class="user-email">amelia.wallace92@example.com</td><td class="user-md5">7b6b45249743ad383e7f2e1fafd640fa</td><td class="user-sha1">4003345f140d1f3af49b180ecdc8406755e3b472</td></tr>
+					<tr><td class="user-firstName">melissa</td><td class="user-lastName">scott</td><td class="user-email">melissa.scott68@example.com</td><td class="user-md5">5be977ac2dc6c7c07f8825de5f3c9926</td><td class="user-sha1">34da1369d029a253a7586a8b582100180bba6441</td></tr>
+					<tr><td class="user-firstName">elijah</td><td class="user-lastName">hall</td><td class="user-email">elijah.hall29@example.com</td><td class="user-md5">21d9c57c1d2ae58cf12ece8a3470666b</td><td class="user-sha1">a2916e062071972d7da46f818b685642b3cffcac</td></tr>
+					<tr><td class="user-firstName">arianna</td><td class="user-lastName">moore</td><td class="user-email">arianna.moore76@example.com</td><td class="user-md5">900e201a6aa7b0b1ce8218782d6142b6</td><td class="user-sha1">c9d8f39e46aed665fa734cf1ca18b2f99cf6805f</td></tr>
+					<tr><td class="user-firstName">nevaeh</td><td class="user-lastName">griffin</td><td class="user-email">nevaeh.griffin53@example.com</td><td class="user-md5">2e036ecb177e0f732bcbc1b0984ffebd</td><td class="user-sha1">044507c8314178f51f47bf2fd6e666a4139b6eef</td></tr>
+					<tr><td class="user-firstName">sarah</td><td class="user-lastName">smith</td><td class="user-email">sarah.smith62@example.com</td><td class="user-md5">de1b2a7baf7850243db71c4abd4e5a39</td><td class="user-sha1">148627088915c721ccebb4c611b859031037e6ad</td></tr>
+					<tr><td class="user-firstName">edward</td><td class="user-lastName">wilson</td><td class="user-email">edward.wilson63@example.com</td><td class="user-md5">6673166b500d058c743b79c746c59243</td><td class="user-sha1">2e8ae6ca8708f518d69cd1475017303ca0ae0080</td></tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="demo" id="biaxial">
+			<h2>Biaxial Headers</h2>
+			<p>We are allowed to have some fun, aren't we? Now we can try having biaxial tables. Remember that the markup for biaxial table has to be as follow, where each row in <code>&lt;tbody&gt;</code> has to have the first cell as <code>&lt;th&gt;</code> instead of <code>&lt;td&gt;</code>:</p>
+			<pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;!-- add more &lt;th&gt; as of when needed --&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;&lt;!-- first cell must ne &lt;th&gt; --&gt;
+            &lt;td&gt;&lt;/td&gt;&lt;!-- other cells are &lt;td&gt; --&gt;
+            &lt;!-- add more &lt;td&gt; as of when needed --&gt;
+        &lt;/tr&gt;
+        &lt;!-- add more rows as of when needed --&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+			<table class="bx1">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Work</th>
+						<th>Mobile</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><th class="user-name">sophie flores</th><td class="user-email">sophie.flores96@example.com</td><td class="user-phone">(788)-499-9689</td><td class="user-mobile">(915)-162-6803</td></tr>
+					<tr><th class="user-name">madison hill</th><td class="user-email">madison.hill26@example.com</td><td class="user-phone">(523)-950-9768</td><td class="user-mobile">(869)-333-9842</td></tr>
+					<tr><th class="user-name">jack foster</th><td class="user-email">jack.foster43@example.com</td><td class="user-phone">(533)-613-4005</td><td class="user-mobile">(253)-508-1724</td></tr>
+					<tr><th class="user-name">carl ward</th><td class="user-email">carl.ward71@example.com</td><td class="user-phone">(280)-130-9702</td><td class="user-mobile">(429)-838-3276</td></tr>
+					<tr><th class="user-name">olivia bell</th><td class="user-email">olivia.bell98@example.com</td><td class="user-phone">(589)-449-4963</td><td class="user-mobile">(685)-204-8461</td></tr>
+					<tr><th class="user-name">allison griffin</th><td class="user-email">allison.griffin45@example.com</td><td class="user-phone">(498)-153-4556</td><td class="user-mobile">(681)-786-9927</td></tr>
+					<tr><th class="user-name">stephen smith</th><td class="user-email">stephen.smith44@example.com</td><td class="user-phone">(687)-245-2715</td><td class="user-mobile">(209)-445-9081</td></tr>
+					<tr><th class="user-name">hannah wallace</th><td class="user-email">hannah.wallace56@example.com</td><td class="user-phone">(784)-731-8424</td><td class="user-mobile">(922)-401-6114</td></tr>
+					<tr><th class="user-name">evelyn carter</th><td class="user-email">evelyn.carter72@example.com</td><td class="user-phone">(871)-179-9521</td><td class="user-mobile">(794)-340-1989</td></tr>
+					<tr><th class="user-name">austin cook</th><td class="user-email">austin.cook20@example.com</td><td class="user-phone">(799)-991-8194</td><td class="user-mobile">(440)-901-1665</td></tr>
+					<tr><th class="user-name">dylan lee</th><td class="user-email">dylan.lee99@example.com</td><td class="user-phone">(376)-197-3547</td><td class="user-mobile">(125)-339-4193</td></tr>
+					<tr><th class="user-name">mark hamilton</th><td class="user-email">mark.hamilton57@example.com</td><td class="user-phone">(547)-578-7096</td><td class="user-mobile">(777)-512-6769</td></tr>
+					<tr><th class="user-name">katie garcia</th><td class="user-email">katie.garcia36@example.com</td><td class="user-phone">(790)-247-1128</td><td class="user-mobile">(757)-225-5553</td></tr>
+					<tr><th class="user-name">paul williams</th><td class="user-email">paul.williams44@example.com</td><td class="user-phone">(997)-843-8164</td><td class="user-mobile">(626)-160-7932</td></tr>
+					<tr><th class="user-name">jerry bailey</th><td class="user-email">jerry.bailey78@example.com</td><td class="user-phone">(647)-709-8682</td><td class="user-mobile">(993)-613-1640</td></tr>
+				</tbody>
+			</table>
+			<p>Even better: what about an overflowing table with sticky header <strong>and</strong> column?</p>
+			<table class="bx2">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Address</th>
+						<th>MD5 hash</th>
+						<th>SHA1 hash</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><th class="user-name"><img src="http://api.randomuser.me/0.2/portraits/women/22.jpg" alt="kylie roberts" title="kylie roberts" />kylie roberts</th><td class="user-email">kylie.roberts13@example.com</td><td class="user-phone">(587)-829-8041</td><td class="user-location">6129 ash dr<br />celina<br />new mexico 52670</td><td class="user-md5">69705c9af115287878ba5adcaf7d0408</td><td class="user-sha1">ad5eb62a8b9682a143e34180aba41a164eb9692b</td></tr>
+					<tr><th class="user-name"><img src="http://api.randomuser.me/0.2/portraits/men/45.jpg" alt="angel wilson" title="angel wilson" />angel wilson</th><td class="user-email">angel.wilson75@example.com</td><td class="user-phone">(631)-781-7924</td><td class="user-location">7403 camden ave<br />moscow<br />georgia 71422</td><td class="user-md5">a5101e70e5a075abab1c08c7a6c39612</td><td class="user-sha1">ddb4a6bd8fed8f7bed2b44e7a69fde18974e5c42</td></tr>
+					<tr><th class="user-name"><img src="http://api.randomuser.me/0.2/portraits/women/27.jpg" alt="taylor taylor" title="taylor taylor" />taylor taylor</th><td class="user-email">taylor.taylor85@example.com</td><td class="user-phone">(279)-572-7050</td><td class="user-location">3962 n stelling rd<br />shelby<br />arizona 63970</td><td class="user-md5">cb205edee16b24366c871cf55e781346</td><td class="user-sha1">0391a1e58f324b3a0c79d32dd09436bd45bfc773</td></tr>
+					<tr><th class="user-name"><img src="http://api.randomuser.me/0.2/portraits/men/19.jpg" alt="soham wright" title="soham wright" />soham wright</th><td class="user-email">soham.wright99@example.com</td><td class="user-phone">(524)-293-6404</td><td class="user-location">5905 harrison ct<br />raleigh<br />idaho 13158</td><td class="user-md5">cebc5f0a8eb734bd46f5c8fa3d7a7e07</td><td class="user-sha1">c59f3a21357fd5c20aa56ec50cb3246939950c23</td></tr>
+					<tr><th class="user-name"><img src="http://api.randomuser.me/0.2/portraits/women/20.jpg" alt="taylor wright" title="taylor wright" />taylor wright</th><td class="user-email">taylor.wright11@example.com</td><td class="user-phone">(569)-816-1342</td><td class="user-location">7246 w pecan st<br />grapevine<br />louisiana 80892</td><td class="user-md5">33229a6d43b349aa7adf8afa9b6e50d2</td><td class="user-sha1">97eebf414085126c7acaf1bdb36d65527b0b5969</td></tr>
+					<tr><th class="user-name"><img src="http://api.randomuser.me/0.2/portraits/women/30.jpg" alt="mary sanders" title="mary sanders" />mary sanders</th><td class="user-email">mary.sanders67@example.com</td><td class="user-phone">(252)-181-4717</td><td class="user-location">7163 mockingbird hill<br />hamsburg<br />north dakota 58352</td><td class="user-md5">a37b2a637d2541a600d707648460397e</td><td class="user-sha1">8964af7e7645a7c6c1e891f5e69d22e8adaafe70</td></tr>
+					<tr><th class="user-name"><img src="http://api.randomuser.me/0.2/portraits/men/46.jpg" alt="david watson" title="david watson" />david watson</th><td class="user-email">david.watson80@example.com</td><td class="user-phone">(748)-213-1039</td><td class="user-location">5621 sunset st<br />dumas<br />south dakota 65723</td><td class="user-md5">c0961eb84d1e91451ecb8450870a2953</td><td class="user-sha1">86fab557254e3d14ebd493ae1ec9b9ad9f0685d3</td></tr>
+					<tr><th class="user-name"><img src="http://api.randomuser.me/0.2/portraits/women/8.jpg" alt="elizabeth johnson" title="elizabeth johnson" />elizabeth johnson</th><td class="user-email">elizabeth.johnson11@example.com</td><td class="user-phone">(473)-683-1255</td><td class="user-location">2893 wheeler ridge dr<br />moscow<br />north carolina 36952</td><td class="user-md5">0bcdc9b55496ea12eb41b8a432a39753</td><td class="user-sha1">49f697a8b043e7d85c8446fbfced0643eb44981d</td></tr>
+					<tr><th class="user-name"><img src="http://api.randomuser.me/0.2/portraits/men/28.jpg" alt="mason price" title="mason price" />mason price</th><td class="user-email">mason.price92@example.com</td><td class="user-phone">(571)-374-1402</td><td class="user-location">7201 railroad st<br />dumas<br />indiana 35322</td><td class="user-md5">4693fbb215b8ca15a6900f0cfa164cdc</td><td class="user-sha1">3df47082217942e736428d6666efb933e2d6a1f6</td></tr>
+					<tr><th class="user-name"><img src="http://api.randomuser.me/0.2/portraits/men/29.jpg" alt="jason price" title="jason price" />jason price</th><td class="user-email">jason.price91@example.com</td><td class="user-phone">(420)-192-2731</td><td class="user-location">6906 plum st<br />yakima<br />minnesota 12486</td><td class="user-md5">1ea50771988c19844c52aa78325282bf</td><td class="user-sha1">2d088eb402f3d9db2a2ccef20c339e6f7bf6c1fd</td></tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="demo" id="final">
+			<h2>The Final Example &mdash; Biaxial overflow and biaxial headers</h2>
+			<p>This is the ultimate example &mdash; we force a very wide table to overflow along both axis.</p>
+			<table data-color class="overflow-both">
+				<thead>
+					<tr>
+						<th>Case</th>
+						<th>#1</th>
+						<th>#2</th>
+						<th>#3</th>
+						<th>#4</th>
+						<th>#5</th>
+						<th>#6</th>
+						<th>#7</th>
+						<th>#8</th>
+						<th>#9</th>
+						<th>#10</th>
+						<th>#11</th>
+						<th>#12</th>
+						<th>#13</th>
+						<th>#14</th>
+						<th>#15</th>
+						<th>#16</th>
+						<th>#17</th>
+						<th>#18</th>
+						<th>#19</th>
+						<th>#20</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><th>Patient #30</th><td>76</td><td>54</td><td>33</td><td>8</td><td>4</td><td>77</td><td>81</td><td>71</td><td>86</td><td>72</td><td>39</td><td>18</td><td>41</td><td>94</td><td>42</td><td>72</td><td>63</td><td>62</td><td>100</td><td>78</td></tr>
+					<tr><th>Patient #24</th><td>47</td><td>61</td><td>88</td><td>51</td><td>75</td><td>4</td><td>81</td><td>49</td><td>26</td><td>49</td><td>94</td><td>43</td><td>12</td><td>41</td><td>59</td><td>50</td><td>26</td><td>92</td><td>83</td><td>33</td></tr>
+					<tr><th>Patient #88</th><td>53</td><td>78</td><td>29</td><td>84</td><td>55</td><td>19</td><td>37</td><td>89</td><td>13</td><td>17</td><td>15</td><td>89</td><td>69</td><td>61</td><td>56</td><td>36</td><td>90</td><td>32</td><td>97</td><td>15</td></tr>
+					<tr><th>Patient #47</th><td>34</td><td>40</td><td>63</td><td>53</td><td>33</td><td>88</td><td>4</td><td>5</td><td>3</td><td>42</td><td>54</td><td>95</td><td>16</td><td>51</td><td>79</td><td>26</td><td>43</td><td>77</td><td>57</td><td>76</td></tr>
+					<tr><th>Patient #80</th><td>12</td><td>23</td><td>2</td><td>89</td><td>2</td><td>20</td><td>29</td><td>47</td><td>38</td><td>86</td><td>32</td><td>68</td><td>66</td><td>66</td><td>3</td><td>17</td><td>82</td><td>6</td><td>37</td><td>83</td></tr>
+					<tr><th>Patient #68</th><td>91</td><td>70</td><td>37</td><td>13</td><td>49</td><td>61</td><td>83</td><td>2</td><td>67</td><td>23</td><td>61</td><td>37</td><td>10</td><td>71</td><td>32</td><td>76</td><td>22</td><td>66</td><td>8</td><td>17</td></tr>
+					<tr><th>Patient #36</th><td>62</td><td>58</td><td>87</td><td>34</td><td>77</td><td>80</td><td>69</td><td>45</td><td>11</td><td>92</td><td>100</td><td>99</td><td>7</td><td>62</td><td>54</td><td>28</td><td>48</td><td>71</td><td>75</td><td>70</td></tr>
+					<tr><th>Patient #77</th><td>80</td><td>82</td><td>58</td><td>66</td><td>70</td><td>64</td><td>33</td><td>77</td><td>60</td><td>14</td><td>29</td><td>93</td><td>39</td><td>60</td><td>13</td><td>9</td><td>51</td><td>6</td><td>44</td><td>13</td></tr>
+					<tr><th>Patient #29</th><td>78</td><td>1</td><td>91</td><td>21</td><td>38</td><td>41</td><td>92</td><td>72</td><td>56</td><td>10</td><td>40</td><td>89</td><td>8</td><td>26</td><td>51</td><td>88</td><td>7</td><td>100</td><td>68</td><td>96</td></tr>
+					<tr><th>Patient #69</th><td>55</td><td>63</td><td>49</td><td>18</td><td>81</td><td>56</td><td>93</td><td>30</td><td>53</td><td>20</td><td>99</td><td>98</td><td>99</td><td>87</td><td>53</td><td>84</td><td>2</td><td>18</td><td>5</td><td>25</td></tr>
+					<tr><th>Patient #33</th><td>36</td><td>31</td><td>61</td><td>68</td><td>40</td><td>4</td><td>55</td><td>19</td><td>18</td><td>17</td><td>46</td><td>1</td><td>27</td><td>40</td><td>60</td><td>3</td><td>69</td><td>42</td><td>87</td><td>31</td></tr>
+					<tr><th>Patient #20</th><td>23</td><td>24</td><td>20</td><td>83</td><td>7</td><td>69</td><td>60</td><td>7</td><td>80</td><td>59</td><td>10</td><td>36</td><td>66</td><td>88</td><td>10</td><td>26</td><td>56</td><td>74</td><td>12</td><td>66</td></tr>
+					<tr><th>Patient #21</th><td>83</td><td>93</td><td>71</td><td>54</td><td>21</td><td>96</td><td>19</td><td>26</td><td>5</td><td>97</td><td>15</td><td>48</td><td>93</td><td>98</td><td>42</td><td>72</td><td>89</td><td>45</td><td>83</td><td>91</td></tr>
+					<tr><th>Patient #15</th><td>100</td><td>58</td><td>85</td><td>70</td><td>32</td><td>50</td><td>77</td><td>5</td><td>56</td><td>34</td><td>92</td><td>18</td><td>89</td><td>23</td><td>13</td><td>17</td><td>83</td><td>85</td><td>32</td><td>60</td></tr>
+					<tr><th>Patient #89</th><td>28</td><td>62</td><td>87</td><td>77</td><td>87</td><td>54</td><td>72</td><td>7</td><td>31</td><td>66</td><td>66</td><td>84</td><td>44</td><td>79</td><td>4</td><td>15</td><td>45</td><td>13</td><td>8</td><td>21</td></tr>
+					<tr><th>Patient #43</th><td>96</td><td>27</td><td>63</td><td>28</td><td>65</td><td>73</td><td>22</td><td>63</td><td>22</td><td>8</td><td>1</td><td>77</td><td>32</td><td>31</td><td>64</td><td>10</td><td>16</td><td>94</td><td>98</td><td>70</td></tr>
+					<tr><th>Patient #25</th><td>10</td><td>19</td><td>11</td><td>4</td><td>90</td><td>44</td><td>22</td><td>95</td><td>62</td><td>87</td><td>96</td><td>43</td><td>20</td><td>11</td><td>40</td><td>10</td><td>69</td><td>28</td><td>89</td><td>90</td></tr>
+					<tr><th>Patient #9</th><td>67</td><td>87</td><td>9</td><td>55</td><td>92</td><td>78</td><td>26</td><td>58</td><td>38</td><td>79</td><td>50</td><td>17</td><td>81</td><td>9</td><td>70</td><td>37</td><td>3</td><td>42</td><td>33</td><td>36</td></tr>
+					<tr><th>Patient #59</th><td>22</td><td>21</td><td>98</td><td>91</td><td>15</td><td>39</td><td>28</td><td>31</td><td>5</td><td>90</td><td>100</td><td>85</td><td>46</td><td>80</td><td>100</td><td>26</td><td>48</td><td>29</td><td>7</td><td>36</td></tr>
+					<tr><th>Patient #23</th><td>90</td><td>90</td><td>64</td><td>96</td><td>89</td><td>52</td><td>85</td><td>49</td><td>50</td><td>73</td><td>43</td><td>76</td><td>90</td><td>1</td><td>98</td><td>35</td><td>12</td><td>48</td><td>15</td><td>1</td></tr>
+				</tbody>
+			</table>
+		</section>
+		
+	</main>
+
+	<footer>
+		<p>Made by Terry Mun, 2014.</p>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+		<script type="text/javascript" src="jquery.stickysort.js"></script>
+		<script>
+			$(function () {
+				// We select for tables universally - you can change the selector to target the tables you want
+				// Basic table
+				$('#basic table').stickySort();
+
+				// Basic table with sort
+				$('#basic-sort table').stickySort({ sortable: true });
+
+				// Biaxial
+				$('#biaxial .bx1').stickySort();
+				$('#biaxial .bx2').stickySort({ sortable: true });
+
+				// Final
+				$('#final table').stickySort({ sortable: true });
+
+				// The codes below has no impact on the functionality of StickySort functionality
+                //-----------------------------------------------------------------------------------------------------------------
+				// Smooth scrolling plugin by Chris Coiyer
+				// Source: http://css-tricks.com/snippets/jquery/smooth-scrolling/
+				$('a[href*=#]:not([href=#])').click(function() {
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+						if (target.length) {
+							$('html,body').animate({
+								scrollTop: target.offset().top
+							}, 1000);
+							return false;
+						}
+					}
+				});
+
+				// Section toggle
+				$('section.demo h2')
+				.append('<a href="#" title="Collapse section" class="toggle">Collapse</a>')
+				.on('click', 'a', function(e) {
+					e.preventDefault();
+					if(!$(this).data('state') || $(this).data('state') == 0) {
+						$(this)
+						.data('state', 1)
+						.attr('title', 'Expand section')
+						.text('Expand')
+						.parent()
+							.siblings()
+								.stop(true,true).slideUp();
+					} else {
+						$(this)
+						.data('state', 0)
+						.attr('title', 'Collapse section')
+						.text('Collapse')
+						.parent()
+							.siblings()
+								.stop(true,true).slideDown();
+					}
+				});
+
+				// Unrelated to sticky header function
+				$('table').each(function () {
+					if($(this).attr('data-color') != undefined) {
+						$(this).find('tbody td').each(function() {
+							if($(this).text().match(/^\d+$/)) {
+								$(this).css({
+									'background-color': 'hsl('+parseInt($(this).text())+',75%,85%)'
+								});
+							}
+						});
+					}					
+				});
+			});
+		</script>
+	</footer>
+</body>
+</html>
