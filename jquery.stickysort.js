@@ -216,9 +216,12 @@
 					.find('thead th')
 						.addClass('sort-default')
 						.data('sortState', 1)
-						.append('<a href="#" class="sort-handle"></a>')
-						.find('.sort-handle')
-							.click(function(e){ e.preventDefault(); });
+						.wrapInner('<div />')
+						.find('div')
+							.css({ position: 'relative' })
+							.append('<a href="#" class="sort-handle"></a>')
+							.find('.sort-handle')
+								.click(function(e){ e.preventDefault(); });
 
 					// Bind click function to all <thead>'s <th> elements in the original table AND all dynamically generated sticky tables
 					$stickyWrap.on('click', '.sticky-enabled thead th, .sticky-thead thead th, .sticky-col thead th, .sticky-intersect thead th', function () {
