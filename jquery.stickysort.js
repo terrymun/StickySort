@@ -55,7 +55,7 @@
 					.end()
 					.find('tbody td').remove();
 
-				$stickyInsct.html('<thead><tr><th>'+$t.find('thead th:first-child').html()+'</th></tr></thead>');
+				$stickyInsct.find('table').html('<thead><tr><th>'+$t.find('thead th:first-child').html()+'</th></tr></thead>');
 				
 				// Set widths
 				var setWidths = function () {
@@ -75,7 +75,7 @@
 							.width($t.width());
 
 						// Set width of sticky table col
-						$stickyCol.find('th').add($stickyInsct.find('th')).width($t.find('thead th').width());
+						$stickyCol.find('th').add($stickyInsct.find('th')).width($t.find('thead th').first().width());
 
 						// Set position sticky intersect
 						$stickyCol.find('table').css({
@@ -99,7 +99,8 @@
 									position: 'fixed',
 									top: $stickyWrap.offset().top - $w.scrollTop(),
 									left: $stickyWrap.offset().left
-								}).find('table').css({
+								});
+								$stickyHead.find('table').css({
 									left: -$stickyWrap.scrollLeft()
 								});
 							} else {
@@ -107,6 +108,11 @@
 								$stickyHead.add($stickyInsct).css({
 									opacity: 0,
 									'pointer-events': 'none'
+								});
+								$stickyInsct.css({
+									position: 'absolute',
+									top: 0,
+									left: 0
 								});
 							}
 						} else {
@@ -119,7 +125,8 @@
 									'pointer-events': 'auto',
 									position: 'fixed',
 									left: $stickyWrap.offset().left
-								}).find('table').css({
+								});
+								$stickyHead.find('table').css({
 									left: -$stickyWrap.scrollLeft()
 								});
 							} else {

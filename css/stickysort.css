@@ -8,6 +8,9 @@
 .sticky-wrap div[class^='sticky'] {
 	overflow: hidden;
 }
+.sticky-wrap tfoot {
+	display: none;
+}
 .sticky-wrap div table {
 	margin: 0;
 	position: relative;
