@@ -109,7 +109,7 @@ This is how the default options look like:
     scrollThrottle: 15,
     resizeDebounce: 250
 }
-`
+```
 
 ----
 
