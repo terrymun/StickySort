@@ -1,5 +1,5 @@
 # StickySort
-A jQuery plugin for tables with sticky headers, columns and sortable feature [View demo here](http://terrymun.github.io/StickySort/).
+A jQuery plugin for tables with sticky headers, columns and sortable feature. [View demo here](http://terrymun.github.io/StickySort/).
 
 ## Introduction
 StickySort is a jQuery plugin that creates sticky headers and columns on your tables, complete with the possibility to add a sortable functionality. This plugin was inspired by a recent task at work where I have to create sticky headers to allow users to orient themselves in large tables that, at many instances, fill the full height of the viewport.
