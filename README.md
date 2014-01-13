@@ -27,46 +27,59 @@ It is rather straightforward to use StickySort &mdash; simply chain the `.sticky
 
 Therefore, a sample table with the most basic usage (only sticky header will be dynamically added) should look as follow:
 
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <!-- add more <th> as of when needed -->
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <!-- add more <td> as of when needed -->
-            </tr>
-            <!-- add more rows as of when needed -->
-        </tbody>
-    </table>
+```html
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <!-- add more <th> as of when needed -->
+        </tr>
+    </thead>
+    <tfoot><!-- tfoot will be hidden -->
+        <tr>
+            <th></th>
+            <!-- add more <th> as of when needed -->
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <td></td>
+            <!-- add more <td> as of when needed -->
+        </tr>
+        <!-- add more rows as of when needed -->
+    </tbody>
+</table>
+```
 
 If you would want a sticky column, too, you will need to use `<th>` for the first cells in all `<tr>` elements in your `<tbody>`, i.e.:
 
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <!-- add more <th> as of when needed -->
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th></th><!-- first cell must ne <th> -->
-                <td></td><!-- other cells are <td> -->
-                <!-- add more <td> as of when needed -->
-            </tr>
-            <!-- add more rows as of when needed -->
-        </tbody>
-    </table>
+```html
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <!-- add more <th> as of when needed -->
+        </tr>
+    </thead>
+    <tfoot><!-- --></tfoot>
+    <tbody>
+        <tr>
+            <th></th><!-- first cell must ne <th> -->
+            <td></td><!-- other cells are <td> -->
+            <!-- add more <td> as of when needed -->
+        </tr>
+        <!-- add more rows as of when needed -->
+    </tbody>
+</table>
+```
 
 In your JS file, you can simply chain the `.sticktSort()` method to your selector on DOM ready, for example:
 
-    $(function () {
-        $('#content table').stickySort();
-    })
+```js
+$(function () {
+    $('#content table').stickySort();
+});
+```
 
 ### Configuration
 Fluidbox can be configured according to your needs. The following options are available:
@@ -84,43 +97,49 @@ Fluidbox can be configured according to your needs. The following options are av
 
 This is how the default options look like:
 
-    {
-        threshold: {
-            rows: 3,
-            viewport: 0.25,
-            px: false,
-            allowanceEval: 'min'
-        },
-        sortable: false,
-        scrollThrottle: 15,
-        resizeDebounce: 250
-    }
+```js
+{
+    threshold: {
+        rows: 3,
+        viewport: 0.25,
+        px: false,
+        allowanceEval: 'min'
+    },
+    sortable: false,
+    scrollThrottle: 15,
+    resizeDebounce: 250
+}
+`
 
 ----
 
 ## Styling
 For your convenience, here is the generated markup when the plugin detects a table in your document and does its magic:
 
-    <div class="sticky-wrap [and other classes copied from original table]">
-        <table class="sticky-enabled [and its original classes]">
-            <!-- table content -->
-        </table>
-        <div class="sticky-col">
-            <table />
-        </div>
-        <div class="sticky-intersect">
-            <table />
-        </div>
-        <div class="sticky-thead">
-            <table />
-        </div>
+```html
+<div class="sticky-wrap [and other classes copied from original table]">
+    <table class="sticky-enabled [and its original classes]">
+        <!-- table content -->
+    </table>
+    <div class="sticky-col">
+        <table />
     </div>
+    <div class="sticky-intersect">
+        <table />
+    </div>
+    <div class="sticky-thead">
+        <table />
+    </div>
+</div>
+```
 
 stickySort will automatically copy the classes you have set on the original table element onto its parent, so as to allow for convenient styling. However, if you are intending the style to only apply to the table element and not its parent (they will share the same classes), you should use the element selector, i.e.
 
-    table.sample-table {
-        /* table specific style that does to apply to wrapping parent */
-    }
+```css
+table.sample-table {
+    /* table specific style that does to apply to wrapping parent */
+}
+```
 
 ----
 
@@ -130,7 +149,9 @@ The sortable function does not rely on the default `.sort()` function in JavaScr
 ### Enabling sorting
 Sorting is disabled by default. In order to enable the sorting function, you can either implement it universally, i.e.:
 
-    $('table').stickySort({ sortable: true });
+```js
+$('table').stickySort({ sortable: true });
+```
 
 &hellip;or if you want to only target specific tables, the plugin will recognize tables that has the class 'sortable' or has the HTML5 data- attribute of `data-sortable`, and mark them as available for sorting.
 
