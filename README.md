@@ -140,3 +140,6 @@ There are three possible sort states with this plugin, and they can be cycled th
 1. Default state &mdash; rows are not sorted, and appear as-is from the original markup
 2. Sort ascending &mdash; rows are sorted by ascending order
 3. Sort descending &mdash; rows are sorted by descending order
+
+# Licensing: GNU General Public License
+This plugin is licensed unter the GNU General Public License.
