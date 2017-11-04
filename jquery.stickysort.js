@@ -11,7 +11,8 @@
 			},
 			sortable: false,
 			scrollThrottle: 15,
-			resizeThrottle: 250
+			resizeThrottle: 250,
+			vOffset: 0
 		}, opts);
 
 		this.each(function() {
@@ -56,7 +57,7 @@
 					.find('tbody td').remove();
 
 				$stickyInsct.find('table').html('<thead><tr><th>'+$t.find('thead th:first-child').html()+'</th></tr></thead>');
-				
+
 				// Set widths
 				var setWidths = function () {
 						$t
@@ -85,7 +86,7 @@
 					repositionSticky = function () {
 						// Return value of calculated allowance
 						var allowance = calcAllowance();
-					
+
 						// 1. Deal with positioning of sticky header
 						// Check if wrapper parent is overflowing along the y-axis
 						if($t.height() > $stickyWrap.height()) {
@@ -118,13 +119,14 @@
 						} else {
 							// If it is not overflowing (basic layout)
 							// Position sticky header based on viewport scrollTop
-							if($w.scrollTop() > $t.offset().top && $w.scrollTop() < $t.offset().top + $t.outerHeight() - allowance) {
+							if($w.scrollTop() > $t.offset().top - settings.vOffset && $w.scrollTop() < $t.offset().top + $t.outerHeight() - allowance) {
 								// When top of viewport is in the table itself
 								$stickyHead.add($stickyInsct).css({
 									opacity: 1,
 									'pointer-events': 'auto',
 									position: 'fixed',
-									left: $stickyWrap.offset().left
+									left: $stickyWrap.offset().left - $(window).scrollLeft(),
+									top: settings.vOffset
 								});
 								$stickyHead.find('table').css({
 									left: -$stickyWrap.scrollLeft()
@@ -145,7 +147,7 @@
 							// When left of wrapping parent is out of view
 							$stickyCol.css({
 								position: 'fixed',
-								left: $stickyWrap.offset().left,
+								left: $stickyWrap.offset().left - $(window).scrollLeft(),
 								top: $stickyWrap.offset().top - $w.scrollTop(),
 								height: $stickyWrap.height()
 							})
@@ -177,10 +179,10 @@
 							rowHeight += $(this).height();
 						});
 						allowance.push(rowHeight);
-						
+
 						// Get height based on viewport
 						allowance.push($w.height()*settings.threshold.viewport)
-						
+
 						// If pixel threshold exists, add it
 						if(settings.threshold.px) {
 							allowance.push(settings.threshold.px);
