@@ -13,9 +13,9 @@ To install StickySort, you will have to include the following resources in your 
 
 | Type | File Name              | Description                                                                                                            |
 |------|------------------------|------------------------------------------------------------------------------------------------------------------------|
-| JS   | [jQuery 1.x](http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js) | **External Dependency**: The jQuery 1.x library is needed for Fluidbox functionality.       |
+| JS   | [jQuery 1.x](http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js) | **External Dependency**: The jQuery 1.x library is needed for StickySort functionality.       |
 | JS   | [Ben Alman's throttle/debounce plugin](http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js)           | **External Dependency**: This plugin allows us to throttle or debounce certain events, allowing for better browser performance. |
-| JS   | `jquery.stickysort.js` | Confers the main functionality of Fluidbox. Alternatively, you can load the minified version, `jquery.fluidbox.min.js` |
+| JS   | `jquery.stickysort.js` | Confers the main functionality of StickySort. Alternatively, you can load the minified version, `jquery.stickysort.min.js` |
 | CSS  | `css/stickysort.css`   | Offers styles that are crucial for the correct display of sticky elements. The appearance will break if this is not included. |
 
 ## Usage
@@ -82,7 +82,7 @@ $(function () {
 ```
 
 ### Configuration
-Fluidbox can be configured according to your needs. The following options are available:
+StickySort can be configured according to your needs. The following options are available:
 
 | Option           | Type      | Default value | Description                           |
 |------------------|-----------|---------------|---------------------------------------|
