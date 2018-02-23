@@ -56,7 +56,7 @@
 					.find('tbody td').remove();
 
 				$stickyInsct.find('table').html('<thead><tr><th>'+$t.find('thead th:first-child').html()+'</th></tr></thead>');
-				
+
 				// Set widths
 				var setWidths = function () {
 						$t
@@ -85,7 +85,7 @@
 					repositionSticky = function () {
 						// Return value of calculated allowance
 						var allowance = calcAllowance();
-					
+
 						// 1. Deal with positioning of sticky header
 						// Check if wrapper parent is overflowing along the y-axis
 						if($t.height() > $stickyWrap.height()) {
@@ -177,10 +177,10 @@
 							rowHeight += $(this).height();
 						});
 						allowance.push(rowHeight);
-						
+
 						// Get height based on viewport
 						allowance.push($w.height()*settings.threshold.viewport)
-						
+
 						// If pixel threshold exists, add it
 						if(settings.threshold.px) {
 							allowance.push(settings.threshold.px);
@@ -199,7 +199,7 @@
 				$t.parent('.sticky-wrap').scroll($.throttle(settings.scrollThrottle, repositionSticky));
 
 				$w
-				.load(setWidths)
+				.on('load', setWidths)
 				.resize($.debounce(settings.resizeThrottle, function () {
 					setWidths();
 					repositionSticky();
